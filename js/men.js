@@ -11,10 +11,14 @@ $( ".point" ).droppable({
   }
 });
 
+
 $( ".man" ).draggable({
   addClasses: false,
   scroll: false,
   containment: $("#board"),
   tolerance: "pointer",
-  revert: true
+  revert: true,
 });
+
+$( ".man.evil" ).draggable('disable');
+$( ".man.good" ).draggable('disable');
