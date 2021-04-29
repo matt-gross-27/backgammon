@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  margin: -.5px;
+  margin: 0;
   padding: 0;
 }
 
@@ -23,6 +23,10 @@
 
 body {
   background-color: black;
+}
+
+.square{
+  margin: -.5px;
 }
 
 .even {
@@ -83,7 +87,7 @@ body {
 }
 
 .bottom {
-  justify-content: flex-end;
+  flex-flow: column-reverse;
 }
 
 #bounced {
