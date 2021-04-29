@@ -28,6 +28,17 @@ $(".man").draggable({
   containment: $("#board"),
   tolerance: "pointer",
   revert: true,
+  drag: (e, ui)=> {
+    if (rotated) {
+      ui.position.top = -ui.position.top
+      ui.position.left = -ui.position.left
+    }
+    // angle = - angle * Math.PI / 180;
+    // var cosAngle = Math.cos(angle);
+    // var sinAngle = Math.sin(angle);
+    // this.x = (this.x * cosAngle) - (this.y * sinAngle);
+    // this.y = (this.x * sinAngle) + (this.y * cosAngle);
+  }
 });
 
 $(".man.evil").draggable('disable');

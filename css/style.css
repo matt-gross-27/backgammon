@@ -10,15 +10,9 @@
   --boardH: calc(var(--unit) * (calc(12 + var(--midX))));
   --boardW: calc(var(--unit) * 15);
   --board: #247345;
-  --edge: rgba(119, 63, 26, 0.878);
+  --edge: rgb(97, 59, 26);
   --odds: #231F20;
   --evens: #FFFFF0;
-  --good: linear-gradient(45deg, rgb(127, 218, 238) 6%, rgb(73, 147, 184) 40%,  rgb(34, 134, 184) 70%, rgb(73, 147, 184) 90%, rgb(127, 218, 238) 300%);
-  --evil: linear-gradient(45deg, rgb(238, 127, 127) 6%, rgb(184, 73, 73) 40%,  rgb(184, 34, 34) 70%, rgb(184, 73, 73) 90%, rgb(238, 127, 127) 300%);
-
-  --good: linear-gradient(135deg, hsl(16, 77%, 72%) 0%, hsl(16, 44%, 50%) 40%,  hsl(16, 44%, 50%) 70%,  hsl(16, 69%, 43%) 100%);
-  --evil: linear-gradient(135deg, hsl(300, 77%, 72%) 0%, hsl(300, 44%, 50%) 40%,  hsl(300, 44%, 50%) 70%,  hsl(300, 69%, 43%) 100%);
-
   --good: linear-gradient(135deg, hsl(200, 77%, 72%) 0%, hsl(200, 44%, 50%) 40%,  hsl(200, 44%, 50%) 70%,  hsl(200, 69%, 43%) 100%);
   --evil: linear-gradient(135deg, hsl(55, 77%, 72%) 0%, hsl(55, 44%, 50%) 40%,  hsl(55, 44%, 50%) 70%,  hsl(55, 69%, 43%) 100%);
   
@@ -29,10 +23,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.square{
-  margin: -.5px;
 }
 
 .even {
@@ -48,7 +38,7 @@ body {
 .edge {
   clip-path: none;
   background-color: var(--edge);
-  box-shadow: 5px 5px 10px calc(var(--unit)/50) rgba(117, 62, 24, 0.42);
+  box-shadow: 5px 5px 10px calc(var(--unit)/50) rgba(97, 59, 26, .5);
 }
 
 #board {
@@ -58,9 +48,13 @@ body {
   display: grid;
   grid-template-columns: repeat(15, var(--unit))  ;
   grid-template-rows: repeat(6, var(--unit)) calc(var(--unit) * var(--midX)) repeat(6, var(--unit));
-  position: absolute;
-  top: 0;
+  position: relative;
+  bottom: 0;
   left: calc((100vw - var(--boardW))/2);
+}
+
+.rotated {
+  transform: rotate(180deg);
 }
 
 

@@ -1,11 +1,14 @@
 const center = document.querySelectorAll(".mid");
 let turn = true;
+let roll = [];
+let rotated = false;
 
 function randomized(arr) {
   return arr[Math.floor(Math.random() * arr.length)]
 };
 
 function endTurn(e) {
+  roll = [];
   document.querySelectorAll(".die").forEach(die => {
     die.remove();
   });
@@ -19,8 +22,13 @@ function rollDice(e) {
     die.setAttribute("style", "display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr);")
 
     const rolling = setInterval(() => {
-
       let num = Math.floor(Math.random() * 6 + 1);
+
+      roll.unshift(num);
+      if (roll.length > 2) {
+        roll.pop();
+      };
+      
       let result
       if (num === 1) {
         result = `
