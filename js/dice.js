@@ -1,7 +1,6 @@
 const center = document.querySelectorAll(".mid");
 let turn = true;
 let roll = [];
-let rotated = false;
 
 function randomized(arr) {
   return arr[Math.floor(Math.random() * arr.length)]

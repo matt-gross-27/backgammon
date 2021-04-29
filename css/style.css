@@ -5,7 +5,8 @@
 }
 
 :root {
-  --unit: min(calc(99vw / 15), calc(99vh / (calc(12 + var(--midX)))));
+  --nonBoardH: calc(50px * 2 + 16px);
+  --unit: min(calc(100vw / 15), calc((100vh - var(--nonBoardH)) / (calc(12 + var(--midX)))));
   --midX: 4;
   --boardH: calc(var(--unit) * (calc(12 + var(--midX))));
   --boardW: calc(var(--unit) * 15);
@@ -19,10 +20,37 @@
 }
 
 body {
-  background-color: black;
+  background-color: var(--evens);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: space-between;
+  height: 100vh;
+}
+
+header, footer {
+  background-color: var(--odds);
+  color: var(--evens);
+  text-align: center;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  height: 50px;
+}
+
+h1 {
+  margin-bottom: 0px;
+  font-size: 32px;
+  line-height: 1;
+  text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.22);
+}
+
+#rotate {
+  position: relative;
+  font-size: 20px;
+  background-color: var(--board);
+  padding: 11px;
+  border-radius: 50%;
+  top: -5px;
 }
 
 .even {
@@ -49,8 +77,11 @@ body {
   grid-template-columns: repeat(15, var(--unit))  ;
   grid-template-rows: repeat(6, var(--unit)) calc(var(--unit) * var(--midX)) repeat(6, var(--unit));
   position: relative;
-  bottom: 0;
   left: calc((100vw - var(--boardW))/2);
+  margin-bottom: 8px;
+  margin-top: 8px;
+  transition: transform .5s;
+
 }
 
 .rotated {

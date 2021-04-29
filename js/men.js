@@ -1,3 +1,5 @@
+let rotated = false;
+
 $(".point").droppable({
   accept: ".man",
   tolerance: "intersect",
@@ -12,7 +14,7 @@ $(".point").droppable({
     console.log('childrenCount', $(e.target).children().length)
 
     if (isGood !== landedOnGood && isAlone) {
-      const bounceMe =  $(e.target).children()[0]
+      const bounceMe = $(e.target).children()[0]
       bounceMe.remove()
       $("#bounced").append(bounceMe);
     }
@@ -25,21 +27,36 @@ $(".point").droppable({
 $(".man").draggable({
   addClasses: false,
   scroll: false,
-  containment: $("#board"),
+  containment: $("#points"),
   tolerance: "pointer",
   revert: true,
-  drag: (e, ui)=> {
+  drag: (e, ui) => {
     if (rotated) {
       ui.position.top = -ui.position.top
       ui.position.left = -ui.position.left
     }
-    // angle = - angle * Math.PI / 180;
-    // var cosAngle = Math.cos(angle);
-    // var sinAngle = Math.sin(angle);
-    // this.x = (this.x * cosAngle) - (this.y * sinAngle);
-    // this.y = (this.x * sinAngle) + (this.y * cosAngle);
   }
 });
 
 $(".man.evil").draggable('disable');
 $(".man.good").draggable('disable');
+
+$("#rotate").on('click', () => {
+  rotated = !rotated;
+
+  if (rotated) {
+    $('#board')
+      .addClass("rotated");
+
+    $(".man").draggable({
+      activate: (e, ui) => {
+        ui.position.top = -ui.position.top
+        ui.position.left = -ui.position.left
+      }
+    });
+
+  } else {
+    $('#board')
+      .removeClass("rotated");
+  }
+});
