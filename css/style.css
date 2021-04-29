@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  margin: 0;
+  margin: -.5px;
   padding: 0;
 }
 
@@ -16,8 +16,8 @@
   --good: linear-gradient(45deg, rgb(127, 218, 238) 6%, rgb(73, 147, 184) 40%,  rgb(34, 134, 184) 70%, rgb(73, 147, 184) 90%, rgb(127, 218, 238) 300%);
   --evil: linear-gradient(45deg, rgb(238, 127, 127) 6%, rgb(184, 73, 73) 40%,  rgb(184, 34, 34) 70%, rgb(184, 73, 73) 90%, rgb(238, 127, 127) 300%);
 
-  --good: linear-gradient(45deg, hsl(16, 77%, 72%) 6%, hsl(16, 44%, 50%) 40%,  hsl(16, 69%, 43%) 70%, hsl(16, 44%, 50%) 90%, hsl(16, 77%, 72%) 300%);
-  --evil: linear-gradient(45deg, hsl(300, 77%, 72%) 6%, hsl(300, 44%, 50%) 40%,  hsl(300, 69%, 43%) 70%, hsl(300, 44%, 50%) 90%, hsl(300, 77%, 72%) 300%);
+  --good: linear-gradient(135deg, hsl(16, 77%, 72%) 0%, hsl(16, 44%, 50%) 40%,  hsl(16, 44%, 50%) 70%,  hsl(16, 69%, 43%) 100%);
+  --evil: linear-gradient(135deg, hsl(300, 77%, 72%) 0%, hsl(300, 44%, 50%) 40%,  hsl(300, 44%, 50%) 70%,  hsl(300, 69%, 43%) 100%);
   
 }
 
@@ -27,17 +27,18 @@ body {
 
 .even {
   background-color: var(--evens);
+  border: calc((var(--unit))/2) solid var(--evens);
 }
 
 .odd {
   background-color: var(--odds);
+  border: calc((var(--unit))/2) solid var(--odds);
 }
  
 .edge {
   clip-path: none;
   background-color: var(--edge);
   box-shadow: 5px 5px 10px calc(var(--unit)/50) rgba(117, 62, 24, 0.42);
-  /* box-shadow: 10px 5px 5px var(--edge); */
 }
 
 #board {
@@ -64,10 +65,10 @@ body {
   height: calc(var(--unit) * (calc(12 + var(--midX))));
   
   display: grid;
-  grid-template-rows: repeat(2, calc(var(--unit) * 5)); 
-  grid-template-columns: repeat(13, var(--unit));
+  grid-template-rows: repeat(2, calc(var(--unit) * 6)); 
+  grid-template-columns: repeat(14, var(--unit));
 
-  grid-row-gap: calc(var(--unit) * var(--midX));
+  grid-row-gap: calc(var(--unit) * var(--midX) - (var(--unit) * 2));
   padding-left: var(--unit);
 }
 
@@ -197,4 +198,22 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#home-good, #home-evil {
+  background: linear-gradient(90deg, 
+  var(--edge) 7%,
+  hsla(24, 64%, 10%, 0.878) 10%,
+  hsla(24, 64%, 17%, 0.878) 40%,
+  hsla(23, 71%, 18%, 0.878) 50%,
+  hsla(24, 64%, 20%, 0.878) 91%,
+  hsla(24, 64%, 5%, 0.878) 92%,
+  var(--edge) 93%
+
+  );
+}
+
+#home-good .man, #home-evil .man {
+  height: calc(var(--unit)/5);
+  border-radius: calc(var(--unit));
 }
