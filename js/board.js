@@ -18,12 +18,20 @@ for (let i = 0; i < 195; i++) {
     square.classList.add("edge");
   }
   else {
-    // COLORS
     square.classList.add(gI);
-    if (gI % 2 === 0) {
-      square.classList.add("even");
+    // COLORS
+    if (gI >= 72) {
+      if (gI % 2 === 0) {
+        square.classList.add("even");
+      } else {
+        square.classList.add("odd");
+      }
     } else {
-      square.classList.add("odd");
+      if (gI % 2 === 0) {
+        square.classList.add("odd");
+      } else {
+        square.classList.add("even");
+      }
     }
 
     if (gI > 59 && gI < 72) {

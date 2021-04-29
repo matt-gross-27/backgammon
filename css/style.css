@@ -66,7 +66,6 @@ body {
   display: grid;
   grid-template-rows: repeat(2, calc(var(--unit) * 5)); 
   grid-template-columns: repeat(13, var(--unit));
-  grid-auto-flow: dense;
 
   grid-row-gap: calc(var(--unit) * var(--midX));
   padding-left: var(--unit);
