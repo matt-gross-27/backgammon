@@ -1,6 +1,5 @@
 const center = document.querySelectorAll(".mid");
 
-
 let pointsEl = document.getElementById("points")
 let turn = true;
 let roll = [];
@@ -18,6 +17,12 @@ function checkTurn() {
   }
 }
 
+function auditScore() {
+  goodScore = $('#home-good-25').children().length;
+  evilScore = $('#home-evil-0').children().length;
+
+}
+
 function revertPosition() {
   while (pointsEl.firstChild) {
     pointsEl.removeChild(pointsEl.firstChild)
@@ -30,6 +35,7 @@ function revertPosition() {
 
   checkTurn();
   amIBounced();
+  auditScore();
 }
 
 function randomized(arr) {
@@ -123,7 +129,7 @@ function rollDice(e) {
     die.addEventListener('click', endTurn);
   });
 
-  setTimeout(handleRoll, 1020);
+  setTimeout(handleRoll, 1001);
 }
 
 function makeDie() {
