@@ -5,7 +5,7 @@
 }
 
 :root {
-  --nonBoardH: calc(70px * 2 + 16px);
+  --nonBoardH: calc(100px * 2 + 16px);
   --unit: min(calc(100vw / 15), calc((100vh - var(--nonBoardH)) / (calc(12 + var(--midX)))));
   --midX: 4;
   --boardH: calc(var(--unit) * (calc(12 + var(--midX))));
@@ -34,7 +34,7 @@ header, footer {
   text-align: center;
   padding-bottom: 8px;
   padding-top: 8px;
-  height: 70px;
+  height: 100px;
 }
 
 footer {
@@ -43,12 +43,18 @@ footer {
   align-items: center;
 }
 
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 footer .oi {
   position: relative;
-  font-size: 30px;
+  font-size: 22px;
   border-radius: 50%;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   text-align: center;
   display: flex;
   align-items: center;
