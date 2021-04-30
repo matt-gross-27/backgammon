@@ -1,4 +1,5 @@
 $board = document.getElementById("board");
+let rotated = false;
 
 let gI = 0;
 let focalPoint;
@@ -69,3 +70,15 @@ for (let i = 0; i < 195; i++) {
     gI++;
   }
 }
+
+$("#rotate").on('click', () => {
+  rotated = !rotated;
+
+  if (rotated) {
+    $('#board')
+      .addClass("rotated");
+  } else {
+    $('#board')
+      .removeClass("rotated");
+  }
+});

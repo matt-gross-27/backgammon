@@ -5,7 +5,7 @@
 }
 
 :root {
-  --nonBoardH: calc(50px * 2 + 16px);
+  --nonBoardH: calc(70px * 2 + 16px);
   --unit: min(calc(100vw / 15), calc((100vh - var(--nonBoardH)) / (calc(12 + var(--midX)))));
   --midX: 4;
   --boardH: calc(var(--unit) * (calc(12 + var(--midX))));
@@ -34,7 +34,33 @@ header, footer {
   text-align: center;
   padding-bottom: 8px;
   padding-top: 8px;
-  height: 50px;
+  height: 70px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer .oi {
+  position: relative;
+  font-size: 30px;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#rotate {
+  background-color: var(--board);
+}
+
+#undo {
+  background-color: red;
 }
 
 h1 {
@@ -42,15 +68,6 @@ h1 {
   font-size: 32px;
   line-height: 1;
   text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.22);
-}
-
-#rotate {
-  position: relative;
-  font-size: 20px;
-  background-color: var(--board);
-  padding: 11px;
-  border-radius: 50%;
-  top: -5px;
 }
 
 .even {
@@ -247,4 +264,8 @@ h1 {
 #home-good .man, #home-evil .man {
   height: calc(var(--unit)/5);
   border-radius: calc(var(--unit));
+}
+
+.ui-droppable-active {
+  border: dashed 3px red;
 }

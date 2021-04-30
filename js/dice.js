@@ -1,6 +1,36 @@
 const center = document.querySelectorAll(".mid");
+
+
+let pointsEl = document.getElementById("points")
 let turn = true;
 let roll = [];
+
+let rollStore = [...roll];
+let positionStore = pointsEl.innerHTML;
+
+function checkTurn() {
+  if (turn === true) {
+    $(".man.good").draggable('enable');
+    $(".man.evil").draggable('disable');
+  } else {
+    $(".man.evil").draggable('enable');
+    $(".man.good").draggable('disable');
+  }
+}
+
+function revertPosition() {
+  while (pointsEl.firstChild) {
+    pointsEl.removeChild(pointsEl.firstChild)
+  }
+
+  pointsEl.innerHTML = positionStore;
+  initDraggable();
+  initDroppable();
+  roll = [...rollStore];
+
+  checkTurn();
+  amIBounced();
+}
 
 function randomized(arr) {
   return arr[Math.floor(Math.random() * arr.length)]
@@ -8,12 +38,25 @@ function randomized(arr) {
 
 function endTurn(e) {
   roll = [];
+  rollStore = [];
   document.querySelectorAll(".die").forEach(die => {
     die.remove();
   });
-  $( ".man.good" ).draggable('disable');
-  $( ".man.evil" ).draggable('disable');
+  $(".man").draggable('disable');
   appendDie(!turn);
+
+  positionStore = pointsEl.innerHTML;
+}
+
+function handleRoll() {
+  if (roll[0] === roll[1]) {
+    roll = [roll[0], roll[0], roll[0], roll[0]];
+  }
+
+  rollStore = [...roll];
+
+  checkTurn();
+  amIBounced();
 }
 
 function rollDice(e) {
@@ -27,7 +70,7 @@ function rollDice(e) {
       if (roll.length > 2) {
         roll.pop();
       };
-      
+
       let result
       if (num === 1) {
         result = `
@@ -70,21 +113,17 @@ function rollDice(e) {
         `;
       }
       die.innerHTML = result;
-
-      setTimeout(()=> {
-        clearInterval(rolling);
-        if (turn === true) {
-          $( ".man.good" ).draggable('enable');
-        } else {
-          $( ".man.evil" ).draggable('enable');
-        }
-      },1000);
-
     }, 25);
+
+    setTimeout(() => {
+      clearInterval(rolling);
+    }, 1000);
 
     die.removeEventListener('click', rollDice);
     die.addEventListener('click', endTurn);
   });
+
+  setTimeout(handleRoll, 1020);
 }
 
 function makeDie() {
@@ -120,3 +159,7 @@ function appendDie(side) {
 
 // Start Game
 appendDie(randomized([true, false]));
+
+$("#undo").on('click', () => {
+  revertPosition();
+});
