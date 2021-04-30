@@ -267,7 +267,7 @@ h1 {
 }
 
 .ui-droppable-active {
-  border: dashed 1px red;
+  border: dashed 1px rgb(7, 40, 7);
 }
 
 .winners {
