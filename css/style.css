@@ -61,6 +61,11 @@ footer .oi {
   justify-content: center;
 }
 
+#play-again {
+  background-color: var(--good);
+  font-size: 55px;
+}
+
 #rotate {
   background-color: var(--board);
 }
@@ -276,16 +281,38 @@ h1 {
   border: dashed 1px rgb(7, 40, 7);
 }
 
+
+
 .winners {
   position: relative;
-  animation: spin 2s infinite linear;
   z-index: 9999;
 }
 
 .winners.man {
-  animation: flutter .5s infinite linear;
-  animation-delay: 4s;
+  animation: spin 2s linear infinite reverse,
+  stretch 1s 60s forwards;
+}
 
+.winners.man::before {
+  content: "👑" ;
+  font-size: calc(var(--unit));
+  position: absolute;
+  bottom: calc(var(--unit)/3);
+}
+
+.losers {
+  position: relative;
+  bottom: calc(var(--unit));
+  animation: flutter 1s linear 4s infinite;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.losers::before {
+  content: "`L`\a" ;
+  font-size: calc(var(--unit)/3);
 }
 
 .newWrapper {
@@ -295,6 +322,7 @@ h1 {
   z-index: 99;
   height: calc(var(--boardH)/2);
   width: calc(var(--boardW)/2);
+  animation: spin 3s infinite linear;
 }
 
 @keyframes spin {
@@ -307,19 +335,24 @@ h1 {
 }
 
 @keyframes flutter {
-  0% {
-    transform: rotateX(0);
-  }
-  25% {
-    transform: rotateX(90deg);
-  }
-  50% {
-    transform: rotateX(180deg);
-  }
-  75% {
-    transform: rotateX(270deg);
-  }
   100% {
     transform: rotateX(360deg);
+  }
+}
+
+@keyframes stretch {
+  0% {
+    height: calc(var(--unit) * .9);
+    width: calc(var(--unit) * .9);
+    border-radius: 50%;
+    bottom: 0
+  }
+
+  100% {
+    height: calc(var(--unit) * .3);
+    width: calc(var(--unit) * 9);
+    border-radius: 0%;
+    bottom: calc(var(--unit) * -4)
+    /* transform: translateY(calc(var(--unit) * 2)); */
   }
 }
