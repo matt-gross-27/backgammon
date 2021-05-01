@@ -20,6 +20,8 @@ function checkTurn() {
 function auditScore() {
   goodScore = $('#home-good-25').children().length;
   evilScore = $('#home-evil-0').children().length;
+  console.log(goodScore);
+  console.log(evilScore);
 
 }
 
@@ -66,8 +68,12 @@ function handleRoll() {
 }
 
 function rollDice(e) {
+  $(".man").draggable('disable');
   document.querySelectorAll(".die").forEach(die => {
+
+    //REMOVE
     die.setAttribute("style", "display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr);")
+    die.removeEventListener('click', rollDice);
 
     const rolling = setInterval(() => {
       let num = Math.floor(Math.random() * 6 + 1);
@@ -123,10 +129,8 @@ function rollDice(e) {
 
     setTimeout(() => {
       clearInterval(rolling);
+      die.addEventListener('click', endTurn);
     }, 1000);
-
-    die.removeEventListener('click', rollDice);
-    die.addEventListener('click', endTurn);
   });
 
   setTimeout(handleRoll, 1001);

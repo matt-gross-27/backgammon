@@ -5,8 +5,8 @@
 }
 
 :root {
-  --nonBoardH: calc(100px * 2 + 16px);
-  --unit: min(calc(100vw / 15), calc((100vh - var(--nonBoardH)) / (calc(12 + var(--midX)))));
+  --nonBoardH: calc(90px * 2 + 16px);
+  --unit: min(calc((100vw - 4px) / 15), calc((100vh - var(--nonBoardH)) / (calc(12 + var(--midX)))));
   --midX: 4;
   --boardH: calc(var(--unit) * (calc(12 + var(--midX))));
   --boardW: calc(var(--unit) * 15);
@@ -19,13 +19,12 @@
   
 }
 
-body {
+#content {
   background-color: var(--evens);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: space-between;
-  height: 100vh;
 }
 
 header, footer {
@@ -34,7 +33,7 @@ header, footer {
   text-align: center;
   padding-bottom: 8px;
   padding-top: 8px;
-  height: 100px;
+  height: 90px;
 }
 
 footer {
@@ -105,9 +104,8 @@ h1 {
   grid-template-columns: repeat(15, var(--unit))  ;
   grid-template-rows: repeat(6, var(--unit)) calc(var(--unit) * var(--midX)) repeat(6, var(--unit));
   position: relative;
-  left: calc((100vw - var(--boardW))/2);
-  margin-bottom: 8px;
-  margin-top: 8px;
+  left: calc(((100vw - 4px) - var(--boardW))/2);
+  margin: 8px 2px;
   transition: transform .5s;
 
 }

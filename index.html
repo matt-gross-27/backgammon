@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <link rel="manifest" href="manifest.json">
   <link rel="shortcut icon" href="./icons/icon-72x72.png" type="image/png">
   <link rel="apple-touch-icon" href="./icons/icon-96x96.png">
@@ -13,99 +13,102 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
   <!-- Iconic (Bootstrap Version) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
   <!-- JQuery UI CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
   <link rel="stylesheet" href="./css/style.css">
-  
+
 
   <title>Backgammon</title>
 </head>
 
 <body>
-  <header>
-    <h1>Backgammon</h1>
-  </header>
-  <div id="board">
-    <div id="points">
-      <div id="point-12" class="point top"> 
-        <div id="good-1" class="man good"></div>
-        <div id="good-2" class="man good"></div>
-        <div id="good-3" class="man good"></div>
-        <div id="good-4" class="man good"></div>
-        <div id="good-5" class="man good"></div>
-      </div>
-      <div id="point-11" class="point top"></div>
-      <div id="point-10" class="point top"></div>
-      <div id="point-9" class="point top"></div>
-      <div id="point-8" class="point top">
-        <div id="evil-15" class="man evil"></div>
-        <div id="evil-14" class="man evil"></div>
-        <div id="evil-13" class="man evil"></div>
-      </div>
-      <div id="point-7" class="point top"></div>
+  <main id="content">
+    <header>
+      <h1>Backgammon</h1>
+    </header>
+    <div id="board">
+      <div id="points">
+        <div id="point-12" class="point top">
+          <div id="good-1" class="man good"></div>
+          <div id="good-2" class="man good"></div>
+          <div id="good-3" class="man good"></div>
+          <div id="good-4" class="man good"></div>
+          <div id="good-5" class="man good"></div>
+        </div>
+        <div id="point-11" class="point top"></div>
+        <div id="point-10" class="point top"></div>
+        <div id="point-9" class="point top"></div>
+        <div id="point-8" class="point top">
+          <div id="evil-15" class="man evil"></div>
+          <div id="evil-14" class="man evil"></div>
+          <div id="evil-13" class="man evil"></div>
+        </div>
+        <div id="point-7" class="point top"></div>
 
-      <div id="bounced">
-      </div>
+        <div id="bounced">
+        </div>
 
-      <div id="point-6" class="point top">
-        <div id="evil-12" class="man evil"></div>
-        <div id="evil-11" class="man evil"></div>
-        <div id="evil-10" class="man evil"></div>
-        <div id="evil-9" class="man evil"></div>
-        <div id="evil-8" class="man evil"></div>
-      </div>
-      <div id="point-5" class="point top"></div>
-      <div id="point-4" class="point top"></div>
-      <div id="point-3" class="point top"></div>
-      <div id="point-2" class="point top"></div>
-      <div id="point-1" class="point top">
-        <div id="good-6" class="man good"></div>
-        <div id="good-7" class="man good"></div>
-      </div>
-      
-      <div id="home-evil-0" class="point top"></div>
-      
-      <div id="point-13" class="point bottom">
-        <div id="evil-7" class="man evil"></div>
-        <div id="evil-6" class="man evil"></div>
-        <div id="evil-5" class="man evil"></div>
-        <div id="evil-4" class="man evil"></div>
-        <div id="evil-3" class="man evil"></div>
-      </div>
-      <div id="point-14" class="point bottom"></div>
-      <div id="point-15" class="point bottom"></div>
-      <div id="point-16" class="point bottom"></div>
-      <div id="point-17" class="point bottom">
-        <div id="good-8" class="man good"></div>
-        <div id="good-9" class="man good"></div>
-        <div id="good-10" class="man good"></div>
-      </div>
-      <div id="point-18" class="point bottom"></div>
+        <div id="point-6" class="point top">
+          <div id="evil-12" class="man evil"></div>
+          <div id="evil-11" class="man evil"></div>
+          <div id="evil-10" class="man evil"></div>
+          <div id="evil-9" class="man evil"></div>
+          <div id="evil-8" class="man evil"></div>
+        </div>
+        <div id="point-5" class="point top"></div>
+        <div id="point-4" class="point top"></div>
+        <div id="point-3" class="point top"></div>
+        <div id="point-2" class="point top"></div>
+        <div id="point-1" class="point top">
+          <div id="good-6" class="man good"></div>
+          <div id="good-7" class="man good"></div>
+        </div>
 
-      <div id="point-19" class="point bottom">
-        <div id="good-11" class="man good"></div>
-        <div id="good-12" class="man good"></div>
-        <div id="good-13" class="man good"></div>
-        <div id="good-14" class="man good"></div>
-        <div id="good-15" class="man good"></div>
+        <div id="home-evil-0" class="point top"></div>
+
+        <div id="point-13" class="point bottom">
+          <div id="evil-7" class="man evil"></div>
+          <div id="evil-6" class="man evil"></div>
+          <div id="evil-5" class="man evil"></div>
+          <div id="evil-4" class="man evil"></div>
+          <div id="evil-3" class="man evil"></div>
+        </div>
+        <div id="point-14" class="point bottom"></div>
+        <div id="point-15" class="point bottom"></div>
+        <div id="point-16" class="point bottom"></div>
+        <div id="point-17" class="point bottom">
+          <div id="good-8" class="man good"></div>
+          <div id="good-9" class="man good"></div>
+          <div id="good-10" class="man good"></div>
+        </div>
+        <div id="point-18" class="point bottom"></div>
+
+        <div id="point-19" class="point bottom">
+          <div id="good-11" class="man good"></div>
+          <div id="good-12" class="man good"></div>
+          <div id="good-13" class="man good"></div>
+          <div id="good-14" class="man good"></div>
+          <div id="good-15" class="man good"></div>
+        </div>
+        <div id="point-20" class="point bottom"></div>
+        <div id="point-21" class="point bottom"></div>
+        <div id="point-22" class="point bottom"></div>
+        <div id="point-23" class="point bottom"></div>
+        <div id="point-24" class="point bottom">
+          <div id="evil-2" class="man evil"></div>
+          <div id="evil-1" class="man evil"></div>
+        </div>
+        <div id="home-good-25" class="point bottom"></div>
       </div>
-      <div id="point-20" class="point bottom"></div>
-      <div id="point-21" class="point bottom"></div>
-      <div id="point-22" class="point bottom"></div>
-      <div id="point-23" class="point bottom"></div>
-      <div id="point-24" class="point bottom">
-        <div id="evil-2" class="man evil"></div>
-        <div id="evil-1" class="man evil"></div>
-      </div>
-      <div id="home-good-25" class="point bottom"></div>
     </div>
-  </div>
 
-  <footer>
-    <div title="Rotate Board" id="rotate" class="oi oi-loop-square"></div>
-    <div title="Undo" id="undo" class="oi oi-action-undo"></div>
-  </footer>
+    <footer>
+      <div title="Rotate Board" id="rotate" class="oi oi-loop-square"></div>
+      <div title="Undo" id="undo" class="oi oi-action-undo"></div>
+    </footer>
+  </main>
 
   <!-- jQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -113,7 +116,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <!-- JQuery UI Touch Punch -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-  
+
   <script src='./js/gameWinnerIs.js'></script>
   <script src="./js/board.js"></script>
   <script src="./js/dice.js"></script>

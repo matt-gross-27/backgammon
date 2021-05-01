@@ -1,3 +1,13 @@
+function resize() {
+  var desiredContentHeight = window.innerHeight;
+  document.getElementById("content").style.height = desiredContentHeight + "px";
+}
+window.onresize = function () {
+  resize();
+};
+
+resize();
+
 $board = document.getElementById("board");
 let rotated = false;
 
@@ -51,7 +61,7 @@ for (let i = 0; i < 195; i++) {
       focalPoint -= 100;
       offset += 10;
     }
-    
+
     if (gI === 72) {
       focalPoint = 0;
       offset = 40;

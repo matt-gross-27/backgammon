@@ -107,7 +107,8 @@ function initDraggable() {
 
       if (e.target.parentElement.getAttribute("id").includes("home")) {
         $(this).draggable('disable');
-        turn ? goodScore++ : evilScore++;
+
+        auditScore();
         
         if (goodScore === 15) {
           gameWinnerIs('good');
