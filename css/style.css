@@ -290,7 +290,7 @@ h1 {
 
 .winners.man {
   animation: spin 2s linear infinite reverse,
-  stretch 1s 60s forwards;
+  stretch 1s 40s forwards;
 }
 
 .winners.man::before {

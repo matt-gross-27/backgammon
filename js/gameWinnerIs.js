@@ -1,19 +1,22 @@
 let lag = 195;
 let promise = Promise.resolve();
 
-function addWinnerClass(el) {
+function addWinnerClass(el, str) {
   el.remove();
+  el.removeAttribute("style");
+
   let newWrapper = document.createElement('div');
   newWrapper.classList = 'winners newWrapper';
 
   document.getElementById("board").append(newWrapper);
 
-  el.classList.add('winners');
+  el.classList = `${str} man ui-draggable-handle ui-draggable-disabled winners`;
   newWrapper.append(el);
 }
 
 function addLosingClass(el, str) {
   el.remove();
+  el.removeAttribute("style");
   document.getElementById("board").append(el);
   el.classList = (`${str === 'good' ? 'evil' : 'good'} man ui-draggable-handle ui-draggable-disabled losers`);
 }
@@ -41,7 +44,7 @@ function gameWinnerIs(str) {
   
   winners.forEach(winningMan => {
     promise = promise.then(()=> {
-      addWinnerClass(winningMan);
+      addWinnerClass(winningMan, str);
       return new Promise((resolve) => {
         setTimeout(resolve, lag)
       });
